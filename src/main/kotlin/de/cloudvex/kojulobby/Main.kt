@@ -1,9 +1,9 @@
-package de.cloudvex.astraltemplate
+package de.cloudvex.kojulobby
 
+import de.cloudvex.kojulobby.commands.LobbyCommand
+import de.cloudvex.kojulobby.events.*
 import dev.jorel.commandapi.CommandAPI
 import dev.jorel.commandapi.CommandAPIBukkitConfig
-import dev.jorel.commandapi.CommandAPICommand
-import dev.jorel.commandapi.executors.CommandExecutor
 import gg.flyte.twilight.Twilight
 import gg.flyte.twilight.twilight
 import org.bukkit.plugin.java.JavaPlugin
@@ -18,15 +18,18 @@ class Main: JavaPlugin() {
         INSTANCE = this
         CommandAPI.onLoad(CommandAPIBukkitConfig(this).verboseOutput(true))
 
-        CommandAPICommand("ping")
-            .executes(CommandExecutor { sender, _ ->
-                sender.sendMessage("pong!")
-            }).register()
+        LobbyCommand
     }
 
     override fun onEnable() {
         twilight = twilight(this)
         CommandAPI.onEnable()
+
+        PlayerInteractListener
+        JoinListener
+        DamageListener
+        DeathListener
+        ProjectileListener
     }
 
     override fun onDisable() {

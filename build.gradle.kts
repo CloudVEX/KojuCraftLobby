@@ -20,10 +20,11 @@ repositories {
     maven("https://papermc.io/repo/repository/maven-public/")
     maven("https://repo.codemc.org/repository/maven-public/")
     maven("https://repo.flyte.gg/releases")
+    maven("https://repo.laturia.net/internal")
 }
 
 dependencies {
-    paperweight.paperDevBundle("$serverVersion-R0.1-SNAPSHOT")
+    paperweight.paperDevBundle("1.21-R0.1-SNAPSHOT")
 
     implementation(kotlin("stdlib"))
 
@@ -31,6 +32,7 @@ dependencies {
     library("dev.jorel:commandapi-bukkit-kotlin:$commandApiVersion")
     library("gg.flyte:twilight:$twilightVersion")
     library("com.google.code.gson:gson:$gsonVersion")
+    library("net.laturia:sysa:1.0.12")
 }
 
 paper {

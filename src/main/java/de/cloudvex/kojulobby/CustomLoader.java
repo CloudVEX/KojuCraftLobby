@@ -1,4 +1,4 @@
-package de.cloudvex.astraltemplate;
+package de.cloudvex.kojulobby;
 
 import com.google.gson.Gson;
 import io.papermc.paper.plugin.loader.PluginClasspathBuilder;
